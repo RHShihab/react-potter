@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+@import url('http://fonts.cdnfonts.com/css/harry-potter');
 
 .App-logo {
   height: 40vmin;
@@ -14,6 +12,7 @@
 }
 
 .App-header {
+  text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -35,4 +34,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.heading{
+  font-family: 'Harry Potter', sans-serif;
+  text-align: center;
+  font-size: 50px;
+}
+
+.card-gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px;
+  row-gap: 30px;
 }

@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One|Oswald");
+
+.card {
+  /* transition: 0.2s; */
+  margin: 10px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0px rgb(140, 140, 140);
+  width: 270px;
+
+  font-family: "Crimson Text", Georgia;
+  text-align: center;
+  font-size: 30px;
+}
+
+.card img {
+  border-radius: 10px 10px 0 0;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
