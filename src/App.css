@@ -1,8 +1,9 @@
-@import url("http://fonts.cdnfonts.com/css/harry-potter");
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One|Oswald");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
-*,::before,::after{
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
@@ -18,10 +19,11 @@
 }
 
 .heading {
-  font-family: "Harry Potter", "Crimson Text", Georgia;
+  font-family: "Crimson Text", Georgia;
   text-align: center;
   font-size: 50px;
   background-color: white;
+  height: 100px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -30,7 +32,7 @@
   z-index: 1;
 }
 
-.search-bar-container{
+.search-bar-container {
   background-color: white;
   position: fixed;
   width: 100%;
@@ -40,7 +42,7 @@
   box-shadow: 0px 0px 7px grey;
 }
 
-.search-bar{
+.search-bar {
   max-width: 400px;
   width: calc(100% - 20px);
   height: fit-content;
@@ -48,14 +50,14 @@
   position: relative;
 }
 
-.search-icon{
+.search-icon {
   position: absolute;
   font-size: 17px;
   top: 11px;
   left: 12px;
 }
 
-.search-input{
+.search-input {
   background-color: transparent;
   display: inline-block;
   width: 100%;
@@ -86,18 +88,20 @@
   text-align: center;
 }
 
-@media only screen and (max-width : 620px) {
+@media only screen and (max-width: 620px) {
   .heading {
+    padding-top: 10px;
+    height: 70px;
     font-size: 40px;
     z-index: 0;
     box-shadow: 0px 0px 7px grey;
   }
-  .search-bar-container{
+  .search-bar-container {
     top: unset;
     bottom: 0px;
   }
   .card-gallery {
-    margin-top: 100px;
+    margin-top: 90px;
     padding: 10px;
     row-gap: 10px;
   }
