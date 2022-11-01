@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import loadingGif from "./images/wands.gif"
+import loadingGif from "./images/wands.gif";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Card from "./components/Card";
@@ -8,6 +8,16 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchInput = (e) => {
+    setSearchText(e.target.value);
+    console.log("****START OF SEARCH:*****");
+    data.map(data => {
+      if(data.name.toLowerCase().includes(e.target.value.toLowerCase())) console.log(data.name);
+    })
+    // console.log(e.target.value);
+  };
 
   useEffect(() => {
     fetch(`https://hp-api.herokuapp.com/api/characters`)
@@ -36,31 +46,27 @@ function App() {
 
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-
       <h1 className="heading">Harry Potter</h1>
-      {loading && <div className="loading-div">
+      <div className="search-bar">
+        <i className="search-icon fa fa-search"></i>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search"
+          onChange={handleSearchInput}
+        />
+      </div>
+      {loading && (
+        <div className="loading-div">
           <p>Please wait</p>
-          <img src={loadingGif}/>
-        </div>}
+          <img src={loadingGif} />
+        </div>
+      )}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
       {data && (
-        <div class="card-gallery">
+        <div className="card-gallery">
           {data.map((data) => (
             <Card value={data} />
           ))}
