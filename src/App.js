@@ -9,14 +9,21 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchText, setSearchText] = useState("");
+  const [filteredData, setfilteredData] = useState("");
 
   const handleSearchInput = (e) => {
     setSearchText(e.target.value);
     console.log("****START OF SEARCH:*****");
-    data.map(data => {
-      if(data.name.toLowerCase().includes(e.target.value.toLowerCase())) console.log(data.name);
-    })
-    // console.log(e.target.value);
+    let tempFileredData = [];
+    data.map((data) => {
+      if (data.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+        console.log(data);
+        tempFileredData.push(data);
+      }
+    });
+    setfilteredData(tempFileredData);
+    console.log("***********Filtered Data: **************\n");
+    console.log(filteredData);
   };
 
   useEffect(() => {
@@ -31,8 +38,9 @@ function App() {
         return response.json();
       })
       .then((actualData) => {
-        console.log(actualData);
+        // console.log(actualData);
         setData(actualData);
+        setfilteredData(actualData);
         setError(null);
       })
       .catch((err) => {
@@ -46,16 +54,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="heading">Harry Potter</h1>
-      <div className="search-bar">
-        <i className="search-icon fa fa-search"></i>
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Search"
-          onChange={handleSearchInput}
-        />
-      </div>
+        <h1 className="heading">Harry Potter</h1>
+        <div className="search-bar-container">
+          <div className="search-bar">
+            <i className="search-icon fa fa-search"></i>
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search"
+              onChange={handleSearchInput}
+            />
+          </div>
+        </div>
       {loading && (
         <div className="loading-div">
           <p>Please wait</p>
@@ -67,8 +77,8 @@ function App() {
       )}
       {data && (
         <div className="card-gallery">
-          {data.map((data) => (
-            <Card value={data} />
+          {filteredData.map((filteredData) => (
+            <Card value={filteredData} />
           ))}
         </div>
       )}
