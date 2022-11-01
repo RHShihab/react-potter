@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import loadingGif from "./images/wands.gif"
 import "./App.css";
 import { useState, useEffect } from "react";
 import Card from "./components/Card";
@@ -51,7 +52,10 @@ function App() {
       </header> */}
 
       <h1 className="heading">Harry Potter</h1>
-      {loading && <div>A moment please...</div>}
+      {loading && <div className="loading-div">
+          <p>Please wait</p>
+          <img src={loadingGif}/>
+        </div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
