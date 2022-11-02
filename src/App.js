@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import loadingGif from "./images/wands.gif";
 import "./App.css";
 import { useState, useEffect } from "react";
@@ -10,6 +9,7 @@ function App() {
   const [error, setError] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [filteredData, setfilteredData] = useState("");
+  const [cardSelected, setCardSelected] = useState(false);
 
   const handleSearchInput = (e) => {
     setSearchText(e.target.value);
@@ -54,18 +54,18 @@ function App() {
 
   return (
     <div className="App">
-        <h1 className="heading">Harry Potter</h1>
-        <div className="search-bar-container">
-          <div className="search-bar">
-            <i className="search-icon fa fa-search"></i>
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search"
-              onChange={handleSearchInput}
-            />
-          </div>
+      <h1 className="heading">Harry Potter</h1>
+      <div className="search-bar-container">
+        <div className="search-bar">
+          <i className="search-icon fa fa-search"></i>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search"
+            onChange={handleSearchInput}
+          />
         </div>
+      </div>
       {loading && (
         <div className="loading-div">
           <p>Please wait</p>
@@ -76,10 +76,34 @@ function App() {
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
       {data && (
-        <div className="card-gallery">
-          {filteredData.map((filteredData) => (
-            <Card value={filteredData} />
-          ))}
+        <div className="card-container">
+          {cardSelected ? (
+            <div
+              className="selectedCardCanvas"
+              onClick={() => {
+                setCardSelected(false);
+              }}
+            >
+              <div className="selectedCard">
+                <img src= {cardSelected.name} alt="" />
+                <p>{cardSelected.name}</p>
+                <button
+                  onClick={() => {
+                    setCardSelected(false);
+                  }}
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
+          <div className="card-gallery">
+            {filteredData.map((filteredData) => (
+              <Card value={filteredData} setCardSelected={setCardSelected} />
+            ))}
+          </div>
         </div>
       )}
     </div>

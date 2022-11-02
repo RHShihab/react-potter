@@ -29,10 +29,11 @@
   top: 0;
   margin: 0;
   padding-top: 20px;
-  z-index: 1;
+  z-index: 3;
 }
 
 .search-bar-container {
+  z-index: 2; 
   background-color: white;
   position: fixed;
   width: 100%;
@@ -68,9 +69,34 @@
   font-family: "Crimson Text", Georgia;
   font-size: 20px;
 }
+.card-container{
+  margin-top: 200px;
+  text-align: center;
+}
+
+.selectedCardCanvas{
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 150px);
+  top: 150px;
+  background-color: rgba(0, 0, 0, 0.249);
+}
+
+.selectedCard{
+  position: absolute;
+  background-color: beige;
+  width: 90%;
+  max-width: 950px;
+  max-height: 600px;
+  height: 80%;
+  margin: auto;
+  top: 50%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);
+}
 
 .card-gallery {
-  margin-top: 200px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -93,15 +119,18 @@
     padding-top: 10px;
     height: 70px;
     font-size: 40px;
-    z-index: 0;
+    z-index: 3;
     box-shadow: 0px 0px 7px grey;
   }
   .search-bar-container {
     top: unset;
     bottom: 0px;
   }
-  .card-gallery {
+  .card-container{
     margin-top: 90px;
+    text-align: center;
+  }
+  .card-gallery {
     padding: 10px;
     row-gap: 10px;
   }
