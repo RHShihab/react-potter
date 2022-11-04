@@ -77,7 +77,7 @@ function App() {
       )}
       {data && (
         <div className="card-container">
-          {cardSelected ? (
+          {cardSelected && (
             <div
               className="selectedCardCanvas"
               onClick={() => {
@@ -85,8 +85,9 @@ function App() {
               }}
             >
               <div className="selectedCard">
-                <img src= {cardSelected.name} alt="" />
-                <p>{cardSelected.name}</p>
+                <img src= {cardSelected.image} alt="" />
+                <p>Full Name: {cardSelected.name}</p>
+                <p>House: {cardSelected.house}</p>
                 <button
                   onClick={() => {
                     setCardSelected(false);
@@ -96,8 +97,6 @@ function App() {
                 </button>
               </div>
             </div>
-          ) : (
-            <div></div>
           )}
           <div className="card-gallery">
             {filteredData.map((filteredData) => (
