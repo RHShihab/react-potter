@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-potter/static/css/main.32988dd1.css",
-    "main.js": "/react-potter/static/js/main.d5742c9e.js",
+    "main.css": "/react-potter/static/css/main.88e610d0.css",
+    "main.js": "/react-potter/static/js/main.892945f1.js",
     "static/media/wands.gif": "/react-potter/static/media/wands.ed6061b403aa3ab9e5eb.gif",
     "index.html": "/react-potter/index.html",
-    "main.32988dd1.css.map": "/react-potter/static/css/main.32988dd1.css.map",
-    "main.d5742c9e.js.map": "/react-potter/static/js/main.d5742c9e.js.map"
+    "main.88e610d0.css.map": "/react-potter/static/css/main.88e610d0.css.map",
+    "main.892945f1.js.map": "/react-potter/static/js/main.892945f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.32988dd1.css",
-    "static/js/main.d5742c9e.js"
+    "static/css/main.88e610d0.css",
+    "static/js/main.892945f1.js"
   ]
 }
