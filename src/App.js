@@ -68,7 +68,7 @@ function App() {
       </div>
       {loading && (
         <div className="loading-div">
-          <p>Please wait</p>
+          <p>Fetching some data. Please wait...</p>
           <img src={loadingGif} />
         </div>
       )}
